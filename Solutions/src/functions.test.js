@@ -242,6 +242,16 @@ const findShort = (s) => {
   return shortest.length
 }
 
+/*
+ * 15) Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+ * You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
+ */
+
+function litres(time) {
+  const liquid = Math.floor(time / 2)
+  return liquid
+}
+
 /**
  * NOTE: Don't modify anything below this line...
  */
@@ -461,17 +471,29 @@ test('everyYourself()', t => {
 
 test('Function Check - Find Smallest Integer', t => ensureDefined(t, 'findSmallestInt'))
 test('findSmallestInt()', t => {
-  t.deepEqual(findSmallestInt([78,56,232,12,8]),8)
-  t.deepEqual(findSmallestInt([78,56,232,12,18]),12)
-  t.deepEqual(findSmallestInt([78,56,232,412,228]),56)
-  t.deepEqual(findSmallestInt([78,56,232,12,0]),0)
-  t.deepEqual(findSmallestInt([1,56,232,12,8]),1)
+  t.deepEqual(findSmallestInt([78, 56, 232, 12, 8]),8)
+  t.deepEqual(findSmallestInt([78, 56, 232, 12, 18]),12)
+  t.deepEqual(findSmallestInt([78, 56, 232, 412, 228]),56)
+  t.deepEqual(findSmallestInt([78, 56, 232, 12, 0]),0)
+  t.deepEqual(findSmallestInt([1, 56, 232, 12, 8]),1)
 })
 
 test('Function Check - Find Shortest Word', t => ensureDefined(t, 'findShort'))
 test('findShort()', t => {
   t.deepEqual(findShort('bitcoin take over the world maybe who knows perhaps'), 3)
   t.deepEqual(findShort('turns out random test cases are easier than writing out basic ones'), 3)
+})
+
+test('Function Check - Keep Hydrated', t => ensureDefined(t, 'litres'))
+test('litres()', t => {
+  t.deepEqual(litres(2), 1);
+  t.deepEqual(litres(1.4), 0);
+  t.deepEqual(litres(12.3), 6);
+  t.deepEqual(litres(0.82), 0);
+  t.deepEqual(litres(11.8), 5);
+  t.deepEqual(litres(1787), 893)
+  t.deepEqual(litres(0), 0)
+  t.deepEqual(litres(404.4), 202)
 })
 
 /* eslint-enable */
