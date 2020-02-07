@@ -26,12 +26,7 @@
  * }
  */
 
-const yelling = words => {
-  return words.map(word => {
-    return word.toUpperCase()
-  })
-}
-
+// ...
 
 /**
  *
@@ -40,12 +35,7 @@ const yelling = words => {
  * the numbers multiplied by 2
  */
 
-const doubleTrouble = passingArray => {
-  return passingArray.map(selectedNum => {
-    return selectedNum * 2
-    //why do we use return twice
-  })
-}
+// ...
 
 /*
  * 3) Define a function stringyIndexes() that takes an array of
