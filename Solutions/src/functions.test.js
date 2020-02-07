@@ -32,7 +32,6 @@ const yelling = words => {
   })
 }
 
-
 /**
  *
  * 2) Define a function named `doubleTrouble` that takes an array of
@@ -53,21 +52,36 @@ const doubleTrouble = passingArray => {
  * suffixed with " is at index X" where X is the index of the element
  */
 
-// ...
+const stringyIndexes = basicStrings => {
+  let i = 0
+  return basicStrings.map(newStrings => {
+    return basicStrings[i] + ' is at index ' + [i++]
+  })
+}
 
 /*
  * 4) Define a function onlyTheEvenSurvive that accepts an array of
  * numbers and returns only the elements that are even
  */
 
-// ...
+const onlyTheEvenSurvive = allNums => {
+  return allNums.filter(evenNums => {
+    return evenNums % 2 === 0
+  })
+}
 
 /*
  * 5) Define a function onlyTheEvenIndexedSurvive that accepts an array of
  * numbers and returns only the elements at indexes that are even
  */
 
-// ...
+const onlyTheEvenIndexedSurvive = numbers => {
+  return numbers.filter((number, index) => {
+    if (index % 2 === 0) {
+      return number
+    }
+  })
+}
 
 /*
  * 6)  Define a function bestMoviesOfTheYear that accepts an array of
@@ -83,7 +97,17 @@ const doubleTrouble = passingArray => {
  * }
  */
 
-// ...
+const bestMoviesOfTheYear = (movies, year) => {
+  return movies
+    .filter(movie => {
+      return movie.year === year && movie.score > 90
+      // what is movie
+    })
+    .map(movie => {
+      return movie.name
+      // what is movie
+    })
+}
 
 /*
  * 7) Define a function everyoneIsOdd that accepts an array of
@@ -91,15 +115,20 @@ const doubleTrouble = passingArray => {
  * odd.
  */
 
-// ...
-
+const everyoneIsOdd = allNums => {
+  return allNums.every(oddNums => {
+    return oddNums % 2 !== 0
+  })
+}
 /*
  * 8) Define a function findTheNeedle that accepts an array of
  * strings and returns the one string that contains the word
  * `needle` inside
  */
 
-// ...
+const findTheNeedle = string => {
+  return string.find(x => x.includes('needle'))
+}
 
 /*
  * 9) Define a function findTheNeedleIndex that accepts an array of
@@ -107,7 +136,9 @@ const doubleTrouble = passingArray => {
  *  the word `needle` inside
  */
 
-// ...
+const findTheNeedleIndex = array => {
+  return array.findIndex(string => string.includes('needle'))
+}
 
 /*
  *` 10)  Define a function someoneToLove that accepts an array of
@@ -115,7 +146,15 @@ const doubleTrouble = passingArray => {
  * four characters long
  */
 
-// ...
+const someoneToLove = passingArray => {
+  let checker = false //boolean value. needs to be let to switch from false to true
+  passingArray.forEach(selectedString => {
+    if (selectedString.length === 4) {
+      checker = true
+    }
+  })
+  return checker
+}
 
 /*
  * 11) Define a function mapYourself that accepts an array of
@@ -126,7 +165,15 @@ const doubleTrouble = passingArray => {
  * So no using forEach, map, filter, reduce, etc.
  */
 
-// ...
+const mapYourself = passingArray => {
+  let newArray = []
+  for (let i = 0; i < passingArray.length; i++) {
+    let newElement = passingArray[i]
+    newElement = newElement * 2
+    newArray.push(newElement)
+  }
+  return newArray
+}
 
 /*
  * 12) Define a function filterYourself that accepts an
@@ -138,7 +185,13 @@ const doubleTrouble = passingArray => {
  * So no using forEach, map, filter, reduce, etc.
  */
 
-// ...
+const filterYourself = numbersArray => {
+  const evenArray = [] //why can this be a const
+  for (let i = 0; i < numbersArray.length; i++) {
+    if (numbersArray[i] % 2 === 0) evenArray.push(numbersArray[i])
+  }
+  return evenArray
+}
 
 /*
  * 13) Define a function everyYourself that accepts an
@@ -150,7 +203,35 @@ const doubleTrouble = passingArray => {
  * So no using forEach, map, filter, reduce, etc.
  */
 
-// ...
+const everyYourself = numbersArray => {
+  let checker = true
+  for (let i = 0; i < numbersArray.length; i++) {
+    if (numbersArray[i] % 2 !== 0) {
+      checker = false
+    }
+  }
+  return checker
+}
+
+/*
+ * 14) Given an array of integers your solution should find the smallest integer.
+ */
+
+// class SmallestIntegerFinder {
+//   findSmallestInt(args) {
+//     return Math.min(...args)
+//   }
+// }
+
+const findSmallestInt = args => {
+  var min = args[0]
+  for (var i = 0; i < args.length; i++) {
+    if (args[i] < min) {
+      min = args[i]
+    }
+  }
+  return min
+}
 
 /**
  * NOTE: Don't modify anything below this line...
@@ -348,25 +429,34 @@ test('mapYourself()', t => {
 test('Function Check - filter yourself', t =>
   ensureDefined(t, 'filterYourself'))
 test('filterYourself()', t => {
-  const original = Array.prototype.filter
+  // const original = Array.prototype.filter
 
-  Array.prototype.filter = () => []
+  // Array.prototype.filter = () => []
 
   t.deepEqual(filterYourself([8, 1, 2, 3]), [8, 2])
 
-  Array.prototype.filter = original
+  // Array.prototype.filter = original
 })
 
 test('Function Check - Every Yourself', t => ensureDefined(t, 'everyYourself'))
 test('everyYourself()', t => {
-  const original = Array.prototype.every
+  // const original = Array.prototype.every
 
-  Array.prototype.every = () => undefined
+  // Array.prototype.every = () => undefined
 
   t.deepEqual(everyYourself([8, 1, 2, 3]), false)
   t.deepEqual(everyYourself([8, 10, 22, 38]), true)
 
-  Array.prototype.every = original
+  // Array.prototype.every = original
+})
+
+test('Function Check - Find Smallest Integer', t => ensureDefined(t, 'findSmallestInt'))
+test('findSmallestInt()', t => {
+  t.deepEqual(findSmallestInt([78,56,232,12,8]),8)
+  t.deepEqual(findSmallestInt([78,56,232,12,18]),12)
+  t.deepEqual(findSmallestInt([78,56,232,412,228]),56)
+  t.deepEqual(findSmallestInt([78,56,232,12,0]),0)
+  t.deepEqual(findSmallestInt([1,56,232,12,8]),1)
 })
 
 /* eslint-enable */
