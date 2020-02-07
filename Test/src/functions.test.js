@@ -263,6 +263,23 @@
 //   return min
 // }
 
+/*
+ * 15) Simple, given a string of words, return the length of the shortest word(s).
+ * String will never be empty and you do not need to account for different data types.
+ */
+
+//  **** SOLUTION ****
+
+// const findShort = (s) => {
+
+//   let shortest = s.split(' ').reduce((shortestWord, currentWord) => {
+
+//     return shortestWord.length < currentWord.length ? shortestWord : currentWord;
+
+//   }, (s))
+//   return shortest.length
+// }
+
 /**
  * NOTE: Don't modify anything below this line...
  */
@@ -487,6 +504,12 @@ test('findSmallestInt()', t => {
   t.deepEqual(findSmallestInt([78,56,232,412,228]),56)
   t.deepEqual(findSmallestInt([78,56,232,12,0]),0)
   t.deepEqual(findSmallestInt([1,56,232,12,8]),1)
+})
+
+test('Function Check - Find Shortest Word', t => ensureDefined(t, 'findShort'))
+test('findShort()', t => {
+  t.deepEqual(findShort('bitcoin take over the world maybe who knows perhaps'), 3)
+  t.deepEqual(findShort('turns out random test cases are easier than writing out basic ones'), 3)
 })
 
 /* eslint-enable */

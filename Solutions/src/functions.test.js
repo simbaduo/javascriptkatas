@@ -241,6 +241,7 @@ const findShort = (s) => {
   }, (s))
   return shortest.length
 }
+
 /**
  * NOTE: Don't modify anything below this line...
  */
