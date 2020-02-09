@@ -247,9 +247,24 @@ const findShort = (s) => {
  * You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
  */
 
-function litres(time) {
+function litres (time) {
   const liquid = Math.floor(time / 2)
   return liquid
+}
+
+/*
+ * 16) Check to see if a string has the same amount of 'x's and 'o's.
+ * The method must return a boolean and be case insensitive.
+ * The string can contain any char.
+*/
+
+const similarXO = (str) => {
+  if (!str.match(/[x]/ig) && !str.match(/[o]/ig)) {
+    return true
+  } else if (!str.match(/[x]/ig) || !str.match(/[o]/ig)) {
+    return false
+  }
+  return str.match(/[x]/ig).length === str.match(/[o]/ig).length
 }
 
 /**
@@ -494,6 +509,17 @@ test('litres()', t => {
   t.deepEqual(litres(1787), 893)
   t.deepEqual(litres(0), 0)
   t.deepEqual(litres(404.4), 202)
+})
+
+test('Function Check - Equal X/O', t => ensureDefined(t, 'similarXO'))
+test('similarXO()', t => {
+  t.deepEqual(similarXO('xo'), true)
+  t.deepEqual(similarXO('xxOo'), true)
+  t.deepEqual(similarXO(' '), true)
+  t.deepEqual(similarXO('xxxm'), false)
+  t.deepEqual(similarXO('Oo'), false)
+  t.deepEqual(similarXO('ooom'), false)
+  t.deepEqual(similarXO('xxxoooo'), false)
 })
 
 /* eslint-enable */
