@@ -281,7 +281,7 @@
 // }
 
 /*
- * 15) Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+ * 16) Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
  * You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
  */
 
@@ -293,7 +293,7 @@
 // }
 
 /*
- * 16) Check to see if a string has the same amount of 'x's and 'o's.
+ * 17) Check to see if a string has the same amount of 'x's and 'o's.
  * The method must return a boolean and be case insensitive.
  * The string can contain any char.
 */
