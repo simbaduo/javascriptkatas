@@ -1,33 +1,10 @@
-# JavaScript Iteration
+# Codekatas
+This is a list of Code Katas (code logic challenges). This list was compiled during my development bootcamp from daily morning challenges on code wars and occasional homework assignments. I modified the test samples to work in the Ava test runner in JavaScript. I have also created extra tests on my own to develop my skills and learn more about the testing process under the hood. 
 
-## Objectives
+There are 2 separate files function.test.js files in appropriate folders 
 
-After completing this assignment, you should be able to:
+1) - Test -   which forces the user to solve every kata starting with the first puzzle 
 
-* Demonstrate understanding of iteration/enumeration
+and 
 
-## Instructions
-
-1. Fork [this repository](https://github.com/suncoast-devs/js-iteration) to your own account.
-2. Change into your projects directory:
-3. Clone your repository: `git clone js-enumerables`
-4. Change into your project's directory: `cd js-enumerables`
-5. Install the dependencies: `yarn install` (or just `yarn` for short)
-6. Open in your editor]
-7. Start the test runner: `yarn test`
-7. Open `src/functions.test.js` and work on functions until tests pass.
-8. Commit and push your work to GitHub.
-9. Turn in the URL to your GitHub repo.
-
-## Explorer Mode
-
-- All tests passing
-- No linter warnings
-- Turn in the homework using the URL to your repository on GitHub.
-
-## Additional Resources
-
-Reference the documentation on DevDocs to find what kind of helpful functions might already be in JavaScript.
-
-- [String Functions on DevDocs](https://devdocs.io/javascript/global_objects/string).
-- [Array Functions on DevDocs](http://devdocs.io/javascript/global_objects/array).
+2) - Solutions - which passes every test by displaying all the solutions in the program. 
