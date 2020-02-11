@@ -334,9 +334,46 @@
 //   })
 // }
 
-/**
+/*
+ * 19) Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each.
+ * If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
+ * Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
+*/
+
+// function loveFunc(flower1, flower2){
+//   if (flower1 %2 == 0 && flower2 %2 != 0) {
+//   return true; }
+//  else if (flower2 %2 == 0 && flower1 %2 != 0) {
+//  return true; }
+//  else {
+//   return false;
+//   }
+// }
+
+// const loveFunc = (flower1, flower2) => {
+//   if (flower1 % 2 === 0 && flower2 % 2 !== 0) {
+//     return true
+//   } else if (flower2 % 2 === 0 && flower1 % 2 !== 0) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
+
+/*
+ * 20) Messi is a soccer player with goals in three leagues: La Liga, Copa del Rey, and Champions League.
+ * Complete the function to return his total number of goals in all three leagues.
+ * Note: input will always be valid
+*/
+
+// function goals (laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
+//   const goals = laLigaGoals + copaDelReyGoals + championsLeagueGoals
+//   return goals
+// }
+
+/*
  * NOTE: Don't modify anything below this line...
- */
+*/
 
 /* eslint-disable no-undef */
 
@@ -594,6 +631,22 @@ test('validSenior()', t => {
   t.deepEqual(validSenior([[45, 12], [55, 21], [19, -2], [104, 20]]), ['Open', 'Senior', 'Open', 'Senior'])
   t.deepEqual(validSenior([[3, 12], [55, 1], [91, -2], [54, 23]]), ['Open', 'Open', 'Open', 'Open'])
   t.deepEqual(validSenior([[59, 12], [55, -1], [12, -2], [12, 12]]), ['Senior', 'Open', 'Open', 'Open'])
+})
+
+test('Function Check - Petals for Love', t => ensureDefined(t, 'loveFunc'))
+test('loveFunc()', t => {
+  t.deepEqual(loveFunc(1,4), true)
+  t.deepEqual(loveFunc(2,2), false)
+  t.deepEqual(loveFunc(0,1), true)
+  t.deepEqual(loveFunc(0,0), false)
+})
+
+test('Function Check - Messi Goals Function', t => ensureDefined(t, 'goals'))
+test('goals()', t => {
+  t.deepEqual(goals(0,0,0), 0)
+  t.deepEqual(goals(43, 10, 5), 58)
+  t.deepEqual(goals(18, 2, 60), 80)
+  t.deepEqual(goals(10, 0, 3), 13)
 })
 
 /* eslint-enable */

@@ -232,13 +232,10 @@ const findSmallestInt = args => {
  * String will never be empty and you do not need to account for different data types.
  */
 
-const findShort = (s) => {
-
+const findShort = s => {
   let shortest = s.split(' ').reduce((shortestWord, currentWord) => {
-
-    return shortestWord.length < currentWord.length ? shortestWord : currentWord;
-
-  }, (s))
+    return shortestWord.length < currentWord.length ? shortestWord : currentWord
+  }, s)
   return shortest.length
 }
 
@@ -247,7 +244,7 @@ const findShort = (s) => {
  * You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
  */
 
-function litres (time) {
+function litres(time) {
   const liquid = Math.floor(time / 2)
   return liquid
 }
@@ -256,15 +253,15 @@ function litres (time) {
  * 17) Check to see if a string has the same amount of 'x's and 'o's.
  * The method must return a boolean and be case insensitive.
  * The string can contain any char.
-*/
+ */
 
-const similarXO = (str) => {
-  if (!str.match(/[x]/ig) && !str.match(/[o]/ig)) {
+const similarXO = str => {
+  if (!str.match(/[x]/gi) && !str.match(/[o]/gi)) {
     return true
-  } else if (!str.match(/[x]/ig) || !str.match(/[o]/ig)) {
+  } else if (!str.match(/[x]/gi) || !str.match(/[o]/gi)) {
     return false
   }
-  return str.match(/[x]/ig).length === str.match(/[o]/ig).length
+  return str.match(/[x]/gi).length === str.match(/[o]/gi).length
 }
 
 /*
@@ -283,10 +280,9 @@ const similarXO = (str) => {
  * ["Open", "Open", "Senior", "Open", "Open", "Senior"]
 */
 
-function validSenior (data) {
+function validSenior(data) {
   return data.map(person => {
-    return person[0] >= 55 && person[1] > 7
-      ? 'Senior' : 'Open'
+    return person[0] >= 55 && person[1] > 7 ? 'Senior' : 'Open'
   })
 }
 
@@ -294,7 +290,7 @@ function validSenior (data) {
  * 19) Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each.
  * If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
  * Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
-*/
+ */
 
 // function loveFunc(flower1, flower2){
 //   if (flower1 %2 == 0 && flower2 %2 != 0) {
@@ -317,8 +313,19 @@ const loveFunc = (flower1, flower2) => {
 }
 
 /*
+ * 20) Messi is a soccer player with goals in three leagues: La Liga, Copa del Rey, and Champions League.
+ * Complete the function to return his total number of goals in all three leagues.
+ * Note: input will always be valid
+*/
+
+function goals (laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
+  const goals = laLigaGoals + copaDelReyGoals + championsLeagueGoals
+  return goals
+}
+
+/*
  * NOTE: Don't modify anything below this line...
- */
+*/
 
 /* eslint-disable no-undef */
 
@@ -533,28 +540,37 @@ test('everyYourself()', t => {
   // Array.prototype.every = original
 })
 
-test('Function Check - Find Smallest Integer', t => ensureDefined(t, 'findSmallestInt'))
+test('Function Check - Find Smallest Integer', t =>
+  ensureDefined(t, 'findSmallestInt'))
 test('findSmallestInt()', t => {
-  t.deepEqual(findSmallestInt([78, 56, 232, 12, 8]),8)
-  t.deepEqual(findSmallestInt([78, 56, 232, 12, 18]),12)
-  t.deepEqual(findSmallestInt([78, 56, 232, 412, 228]),56)
-  t.deepEqual(findSmallestInt([78, 56, 232, 12, 0]),0)
-  t.deepEqual(findSmallestInt([1, 56, 232, 12, 8]),1)
+  t.deepEqual(findSmallestInt([78, 56, 232, 12, 8]), 8)
+  t.deepEqual(findSmallestInt([78, 56, 232, 12, 18]), 12)
+  t.deepEqual(findSmallestInt([78, 56, 232, 412, 228]), 56)
+  t.deepEqual(findSmallestInt([78, 56, 232, 12, 0]), 0)
+  t.deepEqual(findSmallestInt([1, 56, 232, 12, 8]), 1)
 })
 
 test('Function Check - Find Shortest Word', t => ensureDefined(t, 'findShort'))
 test('findShort()', t => {
-  t.deepEqual(findShort('bitcoin take over the world maybe who knows perhaps'), 3)
-  t.deepEqual(findShort('turns out random test cases are easier than writing out basic ones'), 3)
+  t.deepEqual(
+    findShort('bitcoin take over the world maybe who knows perhaps'),
+    3
+  )
+  t.deepEqual(
+    findShort(
+      'turns out random test cases are easier than writing out basic ones'
+    ),
+    3
+  )
 })
 
 test('Function Check - Keep Hydrated', t => ensureDefined(t, 'litres'))
 test('litres()', t => {
-  t.deepEqual(litres(2), 1);
-  t.deepEqual(litres(1.4), 0);
-  t.deepEqual(litres(12.3), 6);
-  t.deepEqual(litres(0.82), 0);
-  t.deepEqual(litres(11.8), 5);
+  t.deepEqual(litres(2), 1)
+  t.deepEqual(litres(1.4), 0)
+  t.deepEqual(litres(12.3), 6)
+  t.deepEqual(litres(0.82), 0)
+  t.deepEqual(litres(11.8), 5)
   t.deepEqual(litres(1787), 893)
   t.deepEqual(litres(0), 0)
   t.deepEqual(litres(404.4), 202)
@@ -571,19 +587,52 @@ test('similarXO()', t => {
   t.deepEqual(similarXO('xxxoooo'), false)
 })
 
-test('Function Check - Categorize New Member', t => ensureDefined(t, 'validSenior'))
+test('Function Check - Categorize New Member', t =>
+  ensureDefined(t, 'validSenior'))
 test('validSenior()', t => {
-  t.deepEqual(validSenior([[45, 12], [55, 21], [19, -2], [104, 20]]), ['Open', 'Senior', 'Open', 'Senior'])
-  t.deepEqual(validSenior([[3, 12], [55, 1], [91, -2], [54, 23]]), ['Open', 'Open', 'Open', 'Open'])
-  t.deepEqual(validSenior([[59, 12], [55, -1], [12, -2], [12, 12]]), ['Senior', 'Open', 'Open', 'Open'])
+  t.deepEqual(
+    validSenior([
+      [45, 12],
+      [55, 21],
+      [19, -2],
+      [104, 20]
+    ]),
+    ['Open', 'Senior', 'Open', 'Senior']
+  )
+  t.deepEqual(
+    validSenior([
+      [3, 12],
+      [55, 1],
+      [91, -2],
+      [54, 23]
+    ]),
+    ['Open', 'Open', 'Open', 'Open']
+  )
+  t.deepEqual(
+    validSenior([
+      [59, 12],
+      [55, -1],
+      [12, -2],
+      [12, 12]
+    ]),
+    ['Senior', 'Open', 'Open', 'Open']
+  )
 })
 
 test('Function Check - Petals for Love', t => ensureDefined(t, 'loveFunc'))
 test('loveFunc()', t => {
-  t.deepEqual(loveFunc(1,4), true)
-  t.deepEqual(loveFunc(2,2), false)
-  t.deepEqual(loveFunc(0,1), true)
-  t.deepEqual(loveFunc(0,0), false)
+  t.deepEqual(loveFunc(1, 4), true)
+  t.deepEqual(loveFunc(2, 2), false)
+  t.deepEqual(loveFunc(0, 1), true)
+  t.deepEqual(loveFunc(0, 0), false)
+})
+
+test('Function Check - Messi Goals Function', t => ensureDefined(t, 'goals'))
+test('goals()', t => {
+  t.deepEqual(goals(0,0,0), 0)
+  t.deepEqual(goals(43, 10, 5), 58)
+  t.deepEqual(goals(18, 2, 60), 80)
+  t.deepEqual(goals(10, 0, 3), 13)
 })
 
 /* eslint-enable */
