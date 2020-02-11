@@ -372,6 +372,22 @@
 // }
 
 /*
+ * 21) Make a program that filters a list of strings and returns a list with only your friends name in it.
+ * If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
+ * Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
+*/
+
+// function friend (friends) {
+//   const newArray = []
+//   for (let i = 0; i < friends.length; i++) {
+//     if (friends[i].length === 4) {
+//       newArray.push(friends[i])
+//     }
+//   }
+//   return newArray
+// }
+
+/*
  * NOTE: Don't modify anything below this line...
 */
 
@@ -647,6 +663,14 @@ test('goals()', t => {
   t.deepEqual(goals(43, 10, 5), 58)
   t.deepEqual(goals(18, 2, 60), 80)
   t.deepEqual(goals(10, 0, 3), 13)
+})
+
+test('Function Check - Friend Or Foe?', t => ensureDefined(t, 'friend'))
+test('friend()', t => {
+  t.deepEqual(friend(['Ryan', 'Kieran', 'Mark']), ['Ryan', 'Mark'])
+  t.deepEqual(friend(['Ryan', 'Jimmy', '123', '4', 'Cool Man']), ['Ryan'])
+  t.deepEqual(friend(['Jimm', 'Cari', 'aret', 'truehdnviegkwgvke', 'sixtyiscooooool']), ['Jimm', 'Cari', 'aret'])
+  t.deepEqual(friend(['Love', 'Your', 'Face', '1']), ['Love', 'Your', 'Face'])
 })
 
 /* eslint-enable */

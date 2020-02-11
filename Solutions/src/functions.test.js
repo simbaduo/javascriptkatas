@@ -42,7 +42,7 @@ const yelling = words => {
 const doubleTrouble = passingArray => {
   return passingArray.map(selectedNum => {
     return selectedNum * 2
-    //why do we use return twice
+    // why do we use return twice
   })
 }
 
@@ -147,7 +147,7 @@ const findTheNeedleIndex = array => {
  */
 
 const someoneToLove = passingArray => {
-  let checker = false //boolean value. needs to be let to switch from false to true
+  let checker = false // boolean value. needs to be let to switch from false to true
   passingArray.forEach(selectedString => {
     if (selectedString.length === 4) {
       checker = true
@@ -166,7 +166,7 @@ const someoneToLove = passingArray => {
  */
 
 const mapYourself = passingArray => {
-  let newArray = []
+  const newArray = []
   for (let i = 0; i < passingArray.length; i++) {
     let newElement = passingArray[i]
     newElement = newElement * 2
@@ -186,7 +186,7 @@ const mapYourself = passingArray => {
  */
 
 const filterYourself = numbersArray => {
-  const evenArray = [] //why can this be a const
+  const evenArray = [] // why can this be a const
   for (let i = 0; i < numbersArray.length; i++) {
     if (numbersArray[i] % 2 === 0) evenArray.push(numbersArray[i])
   }
@@ -233,7 +233,7 @@ const findSmallestInt = args => {
  */
 
 const findShort = s => {
-  let shortest = s.split(' ').reduce((shortestWord, currentWord) => {
+  const shortest = s.split(' ').reduce((shortestWord, currentWord) => {
     return shortestWord.length < currentWord.length ? shortestWord : currentWord
   }, s)
   return shortest.length
@@ -244,7 +244,7 @@ const findShort = s => {
  * You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
  */
 
-function litres(time) {
+function litres (time) {
   const liquid = Math.floor(time / 2)
   return liquid
 }
@@ -280,7 +280,7 @@ const similarXO = str => {
  * ["Open", "Open", "Senior", "Open", "Open", "Senior"]
 */
 
-function validSenior(data) {
+function validSenior (data) {
   return data.map(person => {
     return person[0] >= 55 && person[1] > 7 ? 'Senior' : 'Open'
   })
@@ -321,6 +321,22 @@ const loveFunc = (flower1, flower2) => {
 function goals (laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
   const goals = laLigaGoals + copaDelReyGoals + championsLeagueGoals
   return goals
+}
+
+/*
+ * 21) Make a program that filters a list of strings and returns a list with only your friends name in it.
+ * If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
+ * Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
+*/
+
+function friend (friends) {
+  const newArray = []
+  for (let i = 0; i < friends.length; i++) {
+    if (friends[i].length === 4) {
+      newArray.push(friends[i])
+    }
+  }
+  return newArray
 }
 
 /*
@@ -633,6 +649,14 @@ test('goals()', t => {
   t.deepEqual(goals(43, 10, 5), 58)
   t.deepEqual(goals(18, 2, 60), 80)
   t.deepEqual(goals(10, 0, 3), 13)
+})
+
+test('Function Check - Friend Or Foe?', t => ensureDefined(t, 'friend'))
+test('friend()', t => {
+  t.deepEqual(friend(['Ryan', 'Kieran', 'Mark']), ['Ryan', 'Mark'])
+  t.deepEqual(friend(['Ryan', 'Jimmy', '123', '4', 'Cool Man']), ['Ryan'])
+  t.deepEqual(friend(['Jimm', 'Cari', 'aret', 'truehdnviegkwgvke', 'sixtyiscooooool']), ['Jimm', 'Cari', 'aret'])
+  t.deepEqual(friend(['Love', 'Your', 'Face', '1']), ['Love', 'Your', 'Face'])
 })
 
 /* eslint-enable */
