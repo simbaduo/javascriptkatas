@@ -340,6 +340,23 @@ function friend (friends) {
 }
 
 /*
+ * 22) You are given a string of space separated numbers, Please return the highest and lowest number.
+ * Ex: highAndLow("2 9 6 8 -7"); // return "9 -7"
+ * All numbers are valid Int32, no need to validate them
+ * There will always be at least one number in input
+ * Output must be two numbers separated by a single space with highest number first
+*/
+
+const highAndLow = (numbers) => {
+  const arrayOfNums = numbers.split(' ') // splitting the input at every space into individual string values
+
+  const lowNum = Math.min(...arrayOfNums)
+  const highNum = Math.max(...arrayOfNums)
+
+  return `${highNum} ${lowNum}`
+}
+
+/*
  * NOTE: Don't modify anything below this line...
 */
 
@@ -657,6 +674,11 @@ test('friend()', t => {
   t.deepEqual(friend(['Ryan', 'Jimmy', '123', '4', 'Cool Man']), ['Ryan'])
   t.deepEqual(friend(['Jimm', 'Cari', 'aret', 'truehdnviegkwgvke', 'sixtyiscooooool']), ['Jimm', 'Cari', 'aret'])
   t.deepEqual(friend(['Love', 'Your', 'Face', '1']), ['Love', 'Your', 'Face'])
+})
+
+test('Function Check - Highest And Lowest', t => ensureDefined(t, 'highAndLow'))
+test('highAndLow()', t => {
+  t.deepEqual(highAndLow('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6'), '542 -214')
 })
 
 /* eslint-enable */
