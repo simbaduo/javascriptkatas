@@ -701,7 +701,7 @@ test('Function Check - Filter List', t => ensureDefined(t, 'filterList'))
 test('filterList()', t => {
   t.deepEqual(filterList([1, 2, 'a', 'b']), [1, 2])
   t.deepEqual(filterList([1, 'a', 'b', 0, 15]), [1, 0, 15])
-  t.deepEqual(filterList([1, 2, 'aasf', '1', '123', 123]), [1, 2, 123])
+  t.deepEqual(filterList([1, 2, 'aaccf', '1', '123', 123]), [1, 2, 123])
 })
 
 /* eslint-enable */
