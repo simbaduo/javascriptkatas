@@ -357,6 +357,22 @@ const highAndLow = (numbers) => {
 }
 
 /*
+ * 23) Create a function that takes a list of non-negative integers and strings and returns
+ * a new list with the strings filtered out.
+ * Ex: filter_list([77, 9, 'b2', 'aasf','1','123', 123]) == [77, 9, 123]
+*/
+
+const filterList = (list) => {
+  let resultArray = []
+
+  resultArray = list.filter(val => {
+    return parseInt(val) === val
+  }
+  )
+  return resultArray
+}
+
+/*
  * NOTE: Don't modify anything below this line...
 */
 
@@ -679,6 +695,13 @@ test('friend()', t => {
 test('Function Check - Highest And Lowest', t => ensureDefined(t, 'highAndLow'))
 test('highAndLow()', t => {
   t.deepEqual(highAndLow('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6'), '542 -214')
+})
+
+test('Function Check - Filter List', t => ensureDefined(t, 'filterList'))
+test('filterList()', t => {
+  t.deepEqual(filterList([1, 2, 'a', 'b']), [1, 2])
+  t.deepEqual(filterList([1, 'a', 'b', 0, 15]), [1, 0, 15])
+  t.deepEqual(filterList([1, 2, 'aasf', '1', '123', 123]), [1, 2, 123])
 })
 
 /* eslint-enable */
