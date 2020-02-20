@@ -421,6 +421,39 @@
 // }
 
 /*
+ * 24) Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+ * Return your answer as a number.
+*/
+
+// function sumMix (x) {
+//   const result = x.map(value => parseInt(value)) // implicit return
+//   let resultSum = 0
+
+//   result.forEach(val => { // foreach returns nothing
+//     resultSum = resultSum + val
+//   })
+
+//   return resultSum
+// }
+
+/* VS Code does not like the syntax of these solutions */
+
+// function sumMix(x){
+
+//   return x
+//     .map(value => parseInt(value))
+//     .reduce((total, value) => total += value, 0) //chaining
+// }
+
+// const sumMix = x => x
+//     .map(value => parseInt(value))
+//     .reduce((total, value) => total += value, 0) //chaining 
+
+/*
+ * NOTE: Don't modify anything below this line...
+*/
+
+/*
  * NOTE: Don't modify anything below this line...
 */
 
@@ -716,6 +749,13 @@ test('filterList()', t => {
   t.deepEqual(filterList([9, 747, 'd', 'et', '9']), [9, 747])
   t.deepEqual(filterList([2, 't', 'y', 10, 1565]), [2, 10, 1565])
   t.deepEqual(filterList([13, 21, 'gigijoe', '7', '808', 99]), [13, 21, 99])
+})
+
+test('Function Check - Sum Mixed Array', t => ensureDefined(t, 'sumMix'))
+test('sumMix()', t => {
+  t.deepEqual(sumMix([9, 3, '7', '3']), 22)
+  t.deepEqual(sumMix(['5', '0', 9, 3, 2, 1, '9', 6, 7]), 42)
+  t.deepEqual(sumMix(['3', 6, 6, 0, '5', 8, 5, '6', 2, '0']), 41)
 })
 
 /* eslint-enable */
